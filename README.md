@@ -1,6 +1,6 @@
 # Shortest Path in Grid with Obstacles
 
-For reference: tinyurl.com/shortest-path-grid-obstacle
+For reference: [Shortest Path in Grid With Obstacles](tinyurl.com/shortest-path-grid-obstacle)
 
 Approach used to solve is by utilizing BFS
 
