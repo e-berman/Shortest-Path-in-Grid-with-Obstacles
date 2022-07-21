@@ -1,6 +1,5 @@
-# Ethan Berman
-
 # Shortest path in grid with Obstacles.
+# Matrix must be greater than 3x3, and does not have to be a square matrix.
 # Can start from any vertex, and end in any specified vertex.
 # Solved using BFS algorithm.
 
@@ -28,9 +27,7 @@ def check_source_destination_vertices(board, source, destination, row_col_length
         raise IndexError("invalid destination vertex")
 
     if board[source_x-1][source_y-1] == '#' or board[destination_x-1][destination_y-1] == '#':
-        raise ValueError("cannot have source or destination be a barrier (#)")
-    
-
+        raise ValueError("cannot have source or destination be a barrier (#)") 
 
 def check_valid_board_dimensions(board):
 
@@ -172,13 +169,3 @@ def solve_puzzle(board, source, destination):
             next_move_cells = 0
 
     return None
-
-# if __name__ == "__main__":
-
-#     B = [['-','-','-','-','-'],
-#         ['-','-','#','-','-'],
-#         ['-','-','-','-','-'],
-#         ['#','-','#','#','-'],
-#         ['-','#','-','-','-']]
-
-#     print(solve_puzzle(B, [1,1], [5,5]))

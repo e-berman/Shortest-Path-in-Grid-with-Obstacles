@@ -20,3 +20,13 @@ class TestCase(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
+
+# if __name__ == "__main__":
+
+#     B = [['-','-','-','-','-'],
+#         ['-','-','#','-','-'],
+#         ['-','-','-','-','-'],
+#         ['#','-','#','#','-'],
+#         ['-','#','-','-','-']]
+
+#     print(solve_puzzle(B, [1,1], [5,5]))
