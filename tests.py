@@ -4,6 +4,7 @@ from Puzzle import *
 class TestCase(unittest.TestCase):
 
     def test_valid_board(self):
+        '''tests if the board dimensions are at least 3x3 and valid'''
         B = [['-','-','-'],
              ['#','_','-'],
              ['-','#','-']]
@@ -23,7 +24,7 @@ class TestCase(unittest.TestCase):
             ))
     
     def test_invalid_board(self):
-        
+        '''tests an invalid board dimension (2x2)'''
         B = [['-','-'],
              ['#','-']]
 
@@ -31,6 +32,10 @@ class TestCase(unittest.TestCase):
             check_valid_board_dimensions(B)   
 
     def test_invalid_source_vertex_index(self):
+        '''
+        tests invalid source vertex values (two outside index ranges,
+        and one invalid source vertex that starts on a '#')
+        '''
         B = [['-','-','-','-','-'],
              ['-','-','#','-','-'],
              ['-','-','-','-','-'],
@@ -56,6 +61,11 @@ class TestCase(unittest.TestCase):
             check_source_destination_vertices(B, source, destination, check_valid_board_dimensions(B))
         
     def test_invalid_destination_vertex(self):
+        '''
+        tests invalid destination vertex values (two outside index ranges,
+        and one invalid destination vertex that ends on a '#')
+        '''
+        
         B = [['-','-','-','-','-'],
              ['-','-','#','-','-'],
              ['-','-','-','-','-'],
@@ -81,6 +91,11 @@ class TestCase(unittest.TestCase):
             check_source_destination_vertices(B, source, destination, check_valid_board_dimensions(B))
 
     def test_valid_moves(self):
+        '''
+        tests valid moves and the correct number of moves
+        made between source and destination vertices
+        '''
+        
         B = [['-','-','-','-','-'],
              ['-','-','#','-','-'],
              ['-','-','-','-','-'],
