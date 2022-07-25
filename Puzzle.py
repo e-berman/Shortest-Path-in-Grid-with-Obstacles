@@ -30,7 +30,11 @@ def check_source_destination_vertices(board, source, destination, row_col_length
         raise ValueError("cannot have source or destination be a barrier (#)") 
 
 def check_valid_board_dimensions(board):
-
+    '''
+    checks that board row and column length are at least 3.
+    if valid, returns a tuple of the row length, col length.
+    '''
+    
     # given the matrix has the same col and row lengths, retrieve the length of either
     board_dimension_row = len(board[0])
     board_dimension_col = len([row[0] for row in board])
@@ -42,7 +46,12 @@ def check_valid_board_dimensions(board):
     return board_dimension_row, board_dimension_col
 
 def check_bottom_cell(current_vertex, row_col_lengths, board, visited, queue, next_move_cells):
-
+    '''
+    checks the cell beneath the current_vertex. If valid, 
+    adds the cell to the queue, sets the corresponding visited cell to True,
+    and increments next_move_cells.
+    '''
+      
     # unpack x and y coordinates
     current_vertex_x = current_vertex[0]
     current_vertex_y = current_vertex[1]
@@ -61,6 +70,11 @@ def check_bottom_cell(current_vertex, row_col_lengths, board, visited, queue, ne
     return next_move_cells
 
 def check_top_cell(current_vertex, board, visited, queue, next_move_cells):
+    '''
+    checks the cell above the current_vertex. If valid, 
+    adds the cell to the queue, sets the corresponding visited cell to True,
+    and increments next_move_cells.
+    '''
 
     # unpack x and y coordinates
     current_vertex_x = current_vertex[0]
@@ -77,7 +91,12 @@ def check_top_cell(current_vertex, board, visited, queue, next_move_cells):
     return next_move_cells
 
 def check_right_cell(current_vertex, row_col_lengths, board, visited, queue, next_move_cells):
-
+    '''
+    checks the cell to the right of the current_vertex. If valid, 
+    adds the cell to the queue, sets the corresponding visited cell to True,
+    and increments next_move_cells.
+    '''
+    
     # unpack x and y coordinates
     current_vertex_x = current_vertex[0]
     current_vertex_y = current_vertex[1]
@@ -96,6 +115,11 @@ def check_right_cell(current_vertex, row_col_lengths, board, visited, queue, nex
     return next_move_cells
 
 def check_left_cell(current_vertex, board, visited, queue, next_move_cells):
+    '''
+    checks the cell to the left of the current_vertex. If valid, 
+    adds the cell to the queue, sets the corresponding visited cell to True,
+    and increments next_move_cells.
+    '''
     
     # unpack x and y coordinates
     current_vertex_x = current_vertex[0]
@@ -112,7 +136,10 @@ def check_left_cell(current_vertex, board, visited, queue, next_move_cells):
     return next_move_cells
 
 def solve_puzzle(board, source, destination):
-    '''Finds shortest path to destination by avoiding barriers'''
+    '''
+    Finds shortest path to destination by avoiding barriers.
+    Utilizes the BFS algorithm to traverse the board to find the shortest path.
+    '''
 
     # initialize visited matrix with False values
     visited = [[False for cell in row] for row in board]
